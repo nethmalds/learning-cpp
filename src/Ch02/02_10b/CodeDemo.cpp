@@ -5,8 +5,16 @@
 #include <iostream>
 #include <cstdint>
 
+using namespace std;
+
 int main(){
+
+    float num = 10.99f;
+
+    cout<< "Number: " << num << endl;
+    cout<< "Decimal: " << (int)num << endl;
+    cout << "floating point: " << (float)(num - (int)num)*10<< endl;
     
-    std::cout << std::endl << std::endl;
+    cout << endl << endl;
     return (0);
 }
