@@ -24,8 +24,7 @@ int main(){
     std::cout << "Enter a student ID: " << std::flush;
     std::cin >> id;
 
-    // Calculate the GPA for the selected student.
-    // Write your code here
+    
 
     std::string student_str;
     student_str = students[0].get_name(); // Change this to the selected student's name

@@ -1,40 +1,42 @@
 #pragma once
 
-#include <string>
+#include<string>
+
+using namespace std;
 
 class Student{
-private:
-    int id;
-    std::string name;
+    private:
+        int stu_id;
+        string stu_name;
 
-public:
-    Student(int the_id, std::string the_name);
-    int get_id() const;
-    std::string get_name() const;
+    public:
+        Student (int s_id, string s_name);
+        int get_id() const;
+        string get_name() const;
 };
 
 class Course{
-private:
-    int id;
-    std::string name;
-    unsigned char credits;
+    private:
+        int co_id;
+        string co_name;
+        unsigned char credits;
 
-public:
-    Course(int the_id, std::string the_name, unsigned char the_credits);
-    int get_id() const;
-    std::string get_name() const;
+    public:
+    Course(int c_id, string c_name, unsigned char c_credits);
+    int get_Cid() const;
+    string get_Cname() const;
     int get_credits() const;
 };
 
 class Grade{
-private:
-    int student_id;
-    int course_id;
-    char grade;
+    private:
+        int stu_id;
+        int co_id;
+        char grade;
 
-public:
-    Grade(int sid, int cid, char grd);
-    int get_student_id() const;
-    int get_course_id() const;
-    char get_grade() const;
+    public:
+        Grade(int s_id, int c_id, char the_grade);
+        int get_sid() const;
+        int get_cid() const;
+        char get_grade() const;
 };
