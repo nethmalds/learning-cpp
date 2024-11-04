@@ -1,6 +1,7 @@
 #pragma once
 
 #include<string>
+#include<vector>
 
 using namespace std;
 
@@ -39,4 +40,22 @@ class Grade{
         int get_sid() const;
         int get_cid() const;
         char get_grade() const;
+};
+
+class StudentRecords{
+    private: 
+        vector<Student> students;
+        vector<Course> courses;
+        vector<Grade> grades;
+
+        float get_num_grade(char) const;
+    
+    public:
+        void add_students(int, string);
+        void add_courses(int, string, unsigned char);
+        void add_grades(int, int, char);
+
+        string get_stu_name(int) const;
+        unsigned char get_C_credits(int) const;
+        float get_GPA(int) const;
 };

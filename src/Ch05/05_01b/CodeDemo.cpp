@@ -8,68 +8,31 @@
 
 using namespace std;
 
+void Initializer(StudentRecords&);
+
 int main(){
-
-    float GPA = 0.0f;
     int id;
-    vector<Student> students = {
-        Student(1,"Saman"),
-        Student(2,"Nimal")
-    };
+    StudentRecords SR;
 
-    vector<Course> courses = {
-        Course(1,"Mathematics",20),
-        Course(2,"Science",25),
-        Course(3,"English",30),
-        Course(4,"Sinhala",30)
-    };
-
-    vector<Grade> grades = {
-        Grade(1,1,'A'),
-        Grade(1,2,'A'),
-        Grade(1,3,'B'),
-        Grade(2,1,'B'),
-        Grade(2,2,'C'),
-        Grade(2,4,'A')
-    };
+    Initializer(SR);
 
     cout<<"Enter the Student Id: "<< flush;
     cin >> id;
-    float num_grd =0.0f,points = 0.0f,tot_credits = 0.0f;
-    for(Grade& grd : grades){
-        if(grd.get_sid() == id){
-            switch (grd.get_grade())
-            {
-            case 'A': 
-                num_grd = 4.0f;
-                break;
-            case 'B': 
-                num_grd = 3.0f;
-                break;
-            case 'C': 
-                num_grd = 2.0f;
-                break;
-            case 'S': 
-                num_grd = 1.0f;
-                break;
-            default:
-                num_grd = 0.0f;
-                break;
-            }
-            int i = 1;
-            while(i < courses.size() && courses[i].get_Cid() != grd.get_cid()){
-                points += num_grd * courses[i].get_credits();
-                tot_credits += courses[i].get_credits();
-                i++;
-            }            
-        }
-    }
-    GPA = points/tot_credits;
-
-    for(Student& stu : students)
-    if(stu.get_id() == id)
-    {
-        cout<< stu.get_name()<<" : "<<GPA<<endl;
-    }
+    cout<<SR.get_stu_name(id)<<" : "<<SR.get_GPA(id)<<endl;
     return(0);
+}
+
+void Initializer(StudentRecords& srec){
+    srec.add_students(1,"Nimal");
+    srec.add_students(2,"Anil");
+    srec.add_courses(1,"Mathematics",50);
+    srec.add_courses(2,"Science",30);
+    srec.add_courses(3,"English",20);
+    srec.add_courses(4,"Sinhala",20);
+    srec.add_grades(1,1,'A');
+    srec.add_grades(1,2,'B');
+    srec.add_grades(1,3,'C');
+    srec.add_grades(2,1,'B');
+    srec.add_grades(2,2,'A');
+    srec.add_grades(2,4,'D');
 }
